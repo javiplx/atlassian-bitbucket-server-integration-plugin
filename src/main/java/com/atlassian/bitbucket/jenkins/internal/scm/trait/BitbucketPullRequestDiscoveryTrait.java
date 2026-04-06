@@ -68,7 +68,7 @@ public class BitbucketPullRequestDiscoveryTrait extends SCMSourceTrait {
                     UserMergeOptions mergeOptions = new UserMergeOptions(gitSCMBuilder.remoteName(),
                             targetHead.getName(),
                             MergeCommand.Strategy.DEFAULT.toString(),
-                            MergeCommand.GitPluginFastForwardMode.FF);
+                            MergeCommand.GitPluginFastForwardMode.NO_FF);
 
                     gitSCMBuilder.withExtension(new PreBuildMerge(mergeOptions));
                 } else {
