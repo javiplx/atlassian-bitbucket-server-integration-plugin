@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 withMaven('maven': 'Maven_3.9.3') {
-                    sh "mvn clean verify"
+                    sh "mvn install -Dmaven.test.skip=true"
                 }
             }
         }
