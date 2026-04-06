@@ -1,6 +1,12 @@
-buildPlugin(
-useContainerAgent: true, // Set to `false` if you need to use Docker for containerized tests
-  configurations: [
-    [platform: 'linux', jdk: 17],
-    [platform: 'windows', jdk: 17],
-])
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                withMaven('maven': 'Maven_3.9.3') {
+                    sh "mvn clean verify"
+                }
+            }
+        }
+    }
+}
